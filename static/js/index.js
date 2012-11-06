@@ -182,8 +182,8 @@ $(document).ready(function() {
           $('#currently_playing').slideDown(200);
         }
 
-        if(visibility == 'minimize'){
-          $('#currently_playing').addClass('minimize');
+        if(visibility) {
+          $('#currently_playing').attr('class', visibility);
         }
         // use fanart of currently playing item as background if enabled in settings
 
@@ -249,9 +249,9 @@ $(document).ready(function() {
         currently_playing_id = $(data).data('id');
       }
     });
-    if (visibility == 'minimize') {
+    if (visibility) {
       timeOuts['currently_playing'] = setTimeout(function() {
-        get_currently_playing('minimize');
+        get_currently_playing(visibility);
       }, 5000);
     } else {
       timeOuts['currently_playing'] = setTimeout(function() {
@@ -316,7 +316,9 @@ $(document).ready(function() {
     $.get(WEBROOT + '/xhr/currently_playing', function(data){
       $('#currently_playing').replaceWith(data);
       if(minimized){
-        $('#currently_playing').addClass('minimize');
+        $('#currently_playing').attr('class', 'minimize');
+      } else {
+        $('#currently_playing').attr('class', 'maximize');
       }
     });
   });
@@ -399,7 +401,11 @@ $(document).ready(function() {
       } else {
         $('#currently_playing').replaceWith(data);
       }
-      if(minimized){$('#currently_playing').addClass('minimize');}
+      if(minimized) {
+        $('#currently_playing').attr('class', 'minimize');
+      } else {
+        $('#currently_playing').attr('class', 'maximize');
+      }
     });
   });
 
@@ -468,12 +474,16 @@ $(document).ready(function() {
 
   // currently playing minimize
   $(document).on('click', '#currently_playing .visibility .minimize', function() {
-    $('#currently_playing').toggleClass('minimize');
+    if ($('#currently_playing').hasClass('minimize')) {
+      $('#currently_playing').attr('class', 'maximize');
+    } else {
+      $('#currently_playing').attr('class', 'minimize');
+    }
     clearTimeout(timeOuts['currently_playing']);
     if($('#currently_playing').hasClass('minimize')){
       get_currently_playing('minimize');
     } else {
-      get_currently_playing();
+      get_currently_playing('maximize');
     }
   });
 
@@ -1907,27 +1917,18 @@ $(document).ready(function() {
 
   /********* Help Dialog *********/
 
-  $(document).on('click', '#help .addloading', function() {
-    var loading = $('#help .loading');
+  $(document).on('click', '#help_dialog .addloading', function() {
+    var loading = $('#help_dialog .head .loading');
     add_loading_gif(loading);
   });
 
 
-  $(document).on('click', '#help .button', function() {
+  $(document).on('click', '#help_dialog .head .button', function() {
     $.get(WEBROOT + '/xhr/help/' + $(this).data('xhr_url'), function(data){
-      $('#help').replaceWith(data);
-    });
-  });
-
-  $(document).on('click', '#help .button', function() {
-    $.get(WEBROOT + '/xhr/help/intro' + $(this).data('xhr_url'), function(data){
-      $('#help').replaceWith(data);
-    });
-  });
-
-  $(document).on('click', '#help .button', function() {
-    $.get(WEBROOT + '/xhr/help/modules' + $(this).data('xhr_url'), function(data){
-      $('#help').replaceWith(data);
+      var popup = $(data);
+      $('#help_dialog .close').click();
+      $('body').append(popup);
+      popup.showPopup({ dispose: true });
     });
   });
 
@@ -2461,9 +2462,7 @@ $(document).ready(function() {
         init_modules();
 
         if (module_name == 'server_settings') {
-          get_module('recently_added');
-          get_module('recently_added_movies');
-          get_module('recently_added_albums');
+          poll_modules(['recently_added', 'recently_added_movies', 'recently_added_albums']);
         }
       }
     );
@@ -2657,9 +2656,7 @@ $(document).ready(function() {
               $('#extra_settings #server_settings').replaceWith(servers_menu);
             }
 
-            get_module('recently_added');
-            get_module('recently_added_movies');
-            get_module('recently_added_albums');
+            poll_modules(['recently_added', 'recently_added_movies', 'recently_added_albums']);
           });
         }
       });
@@ -2700,9 +2697,7 @@ $(document).ready(function() {
         li.closest('ul').find('.active').removeClass('active');
         li.addClass('active');
 
-        get_module('recently_added');
-        get_module('recently_added_movies');
-        get_module('recently_added_albums');
+        poll_modules(['recently_added', 'recently_added_movies', 'recently_added_albums']);
       });
     }
   });
@@ -3071,4 +3066,14 @@ $(document).ready(function() {
       clearTimeout(timeOuts[key]);
     }
   }
+
+  // Poll list of modules
+  function poll_modules(list){
+    $.each(list, function(i){
+      if ($('#'+list[i]).hasClass('module')) {
+        get_module(list[i]);
+      }
+    });
+  }
+
 });
