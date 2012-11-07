@@ -1,0 +1,100 @@
+{% extends "help/help-base.html" %}
+
+{% block help_content %}
+<style>
+hr {
+background: transparent;
+color: transparent;
+width:350px;
+border-left: none;
+border-right: none;
+border-top: none;
+border-bottom: 1px dashed #FFF;
+}
+</style>
+<div class="help">
+  <br><strong>Maraschino's Youtube Collection.</strong><br><br>
+  These videos maybe of things that are a WIP, ideas being brainstormed or features that may never exist. If a video contains a feature you are sure does not exist in Maraschino and would like to see it in, contact us on the Maraschino Forums, we enjoy users getting in touch.<br><br>
+  They are all here so the videos can be kept all in one place and viewed at later times by new users and Dev's alike.<br><br>
+  <center>Jump to <a href="#NEMI" class="button">N3MIS15's</a> or <a href="#DEJA" class="button">DejaVu's</a>V ideos</a><br><br>
+  <strong style='font-size:medium'>Gugahoi's Contributed Videos</strong><br><br>
+
+{% macro gugatube(title, date, refid) %}
+
+  <div class="gugatube">
+  <strong>{{title}}</strong><br>Uploaded {{date}}<br><br>
+  <object type="application/x-shockwave-flash" style="width:500px; height:350px;" data="http://www.youtube.com/v/{{refid}}?version=3"><param name="movie" value="http://www.youtube.com/v/{{refid}}?version=3" /></object><br><br><hr><br>
+  </div>
+
+{% endmacro %}
+
+  {{ gugatube('Maraschino Sickbeard Widget', 'Nov 21, 2011', 'baG8v19-3ZQ') }}
+  {{ gugatube('Sickbeard Module menu', 'Nov 22, 2011', '6Cgx7rv85s4') }}
+  {{ gugatube('Sickbeard Module Rev3', 'Nov 26, 2011', 'JRpQsvS-oGU') }}
+  {{ gugatube('SabNZBd Module', 'Nov 26, 2011', '62INia30elY') }}
+  {{ gugatube('Maraschino XBMC Remote', 'Jan 02, 2012', 'TIqJ-SIP7Fo') }}
+  {{ gugatube('Maraschino bugfix', 'Jan 11, 2012', 'dQettpEj-LY') }}
+  {{ gugatube('Maraschino Server settings tab', 'Jan 12, 2012', 'gFccrFfsvXw') }}
+  {{ gugatube('Maraschino Search Prototype', 'Jan 19, 2012', 'pEDJgxHr3wM') }}
+  {{ gugatube('Maraschino Search Feature take 2', 'Feb 3, 2012', 'Ijf075VEWkY') }}
+  {{ gugatube('Maraschino CPv2 Module', 'Jun 25, 2012', 'YFxHADM5BAU') }}
+  {{ gugatube('Maraschino CPv2 module v0.2', 'Jun 25, 2012', 'q21xStetRGM') }}
+
+  <center><a name="NEMI"></a><strong style='font-size:medium'>N3MIS15's Contributed Videos  </strong><a href="#TOP" class="button" title="Back to Top">^</a><br><br>
+
+{% macro n3mitube(title, date, refid) %}
+
+  <div class="n3mitube">
+  <strong>{{title}}</strong><br>Uploaded {{date}}<br><br>
+  <object type="application/x-shockwave-flash" style="width:500px; height:350px;" data="http://www.youtube.com/v/{{refid}}?version=3">
+  <param name="movie" value="http://www.youtube.com/v/{{refid}}?version=3" /></object><br><br><hr><br>
+  </div>
+
+{% endmacro %}
+
+  {{ n3mitube('Editing movie info in Maraschino', 'Apr 6, 2012', 'jm8RQv6GYp4') }}
+  {{ n3mitube('headphones teaser, nothing is complete yet', 'Apr 24, 2012', 'wG_3nIlhrAI') }}
+  {{ n3mitube('notify XBMC from menu', 'May 11, 2012', 'plYyldDj7vc') }}
+  {{ n3mitube('Maraschino updater test', 'May 12, 2012', 'r2f6HivtQTY') }}
+  {{ n3mitube('updater_v2', 'Jun 5, 2012', 'O8L266XYgmU') }}
+  {{ n3mitube('headphones18 6 1', 'Jun 18, 2012', 'bgy16UVuL7I') }}
+  {{ n3mitube('playlist1', 'Jun 21, 2012', '4tqNA0PvsrU') }}
+  {{ n3mitube('headphones 2-7', 'Jul 2, 2012', 'iN8hgndIHww') }}
+  {{ n3mitube('isotope', 'Jul 5, 2012', 'fcr4dyKECHQ') }}
+  {{ n3mitube('traktplus upgrades', 'Jul 13, 2012', '9QbdNcbpk-Q') }}
+  {{ n3mitube('trakt teaser', 'Jul 24, 2012', 'Sa-ZT68R4us') }}
+  {{ n3mitube('Maraschino XBMCMM', 'Aug 8, 2012', 'YY79BH17Fno') }}
+  {{ n3mitube('Maraschino XBMC Media Manager', 'Aug 11,2012', 'EhGGOI5DzFc') }}
+  {{ n3mitube('disks1', 'Sep 4, 2012', 'Y5ZVF3TAYiU') }}
+  {{ n3mitube('Sync XBMC and trakt.tv', 'Sep 13, 2012', 'Zd3wW0G77eQ') }}
+  {{ n3mitube('xbmcserver', 'Sep 13, 2012', 'opiN50StdC4') }}
+  {{ n3mitube('cp releases', 'Oct 9, 2012', '2KCR9f6Ut6E') }}
+  {{ n3mitube('library rewrite', 'Oct 14, 2012', 'HuMhT1cXTkw') }}
+  {{ n3mitube('lib', 'Oct 24, 2012', 'DapdDhYp7LI') }}
+
+  <center><a name="DEJA"></a><strong style='font-size:medium'>DejaVu's Contributed Videos  </strong><a href="#TOP" class="button" title="Back to Top">^</a><br><br>
+
+{% macro dejatube(title, date, refid) %}
+
+  <div class="dejatube"></a>
+  <strong>{{title}}</strong><br>Uploaded {{date}}<br><br>
+  <object type="application/x-shockwave-flash" style="width:500px; height:350px;" data="http://www.youtube.com/v/{{refid}}?version=3">
+  <param name="movie" value="http://www.youtube.com/v/{{refid}}?version=3" /></object><br><br><hr><br>
+  </div>
+
+{% endmacro %}
+
+  {{ dejatube('Maraschino with Tipsy!', 'Nov 22, 2011', '7XRbwGLy9ts') }}
+  {{ dejatube('Sickbeard Styled Scroll', 'Nov 29, 2011', 'H2B-QiyvBtM') }}
+  {{ dejatube('Maraschino Keyboard Icons v2', 'Jan 15, 2012', 'Zf80ZQDm9A') }}
+  {{ dejatube('Maraschino Server Settings Issue', 'Jan 21, 2012', 'HnMAEcK3yT0') }}
+  {{ dejatube('Maraschino\'s Library Filter', 'Jan 24, 2012', '6Wu1gie3Gag') }}
+  {{ dejatube('Maraschino\'s Custom Scrollbars', 'Jan 25, 2012', 'yM-UNdvhzPI') }}
+  {{ dejatube('Maraschino\'s Search Styled', 'Jan 25, 2012', '_Rt0O3uQM9M') }}
+  {{ dejatube('Maraschino Filter Restructure', 'Feb 2, 2012', 'Q73cuch3kNc') }}
+  {{ dejatube('RSS Feeds for Maraschino', 'Mar 24, 2012', 'QN8RddbGof0') }}
+  {{ dejatube('Maraschino Search', 'Mar 21, 2012', 'dFIojEMktec') }}
+
+</center>
+</div>
+{% endblock %}
