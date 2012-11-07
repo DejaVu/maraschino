@@ -2,6 +2,26 @@
 
 {% block help_content %}
 <div class="help">
-  WooHoo
+   <br><strong>What is the Module?</strong><br><br>
+    Modules are the backbone of Maraschino and should be considered as sections with application specific information.<br>
+	Different Modules are being added when they are created and changes are being made to them by developers constantly.<br><br>
+
+    Lets add our first Modules.<br>We are going to add all 3 Recently Added Modules. The variants are TV Episodes, Movies and Albums. <br><br>
+	
+	Start my clicking the invisible Cog in the top left of the window - it'll appear as you mouse moves over it...<br><br>
+    <img src="{{ url_for('static', filename='images/help/tutorial3.jpg') }}"><br><br>
+	You'll active 3 columns, each with "+ Add Module". In the first column, Add the module, "Recently Added Episodes" module.<br>
+    <img src="{{ url_for('static', filename='images/help/tutorial4.jpg') }}"><br><br>
+    Poll Frequency is the amount of time to refresh the contents of the Module. Default is fine.<br>
+	Delay in Loading is the time it takes for the Module to appear when the page loads. Default is fine.<br>
+	Number of episodes to display is self explanatory. <br>
+	Compact View allows you to show or hide the Episode thumbnails and uses less screen real estate.<br>
+	Show Watched episodes means anything you've already seen will not be displayed.<br>
+	View information when selecting an episode needs another module called Media Library, leave it as Default for now. <br>
+	XBMC Server allows you to choose a different server for that particular module. Leave as Default. <br>
+	Click Save. You should notice the last 3 episodes added to your HTPC appear in the module. <br><br>
+    <img src="{{ url_for('static', filename='images/help/tutorial5.jpg') }}"><br><br>	
+	Repeat this procedure for Recently added movies and Recently added albums in each column.<br><br>
+	<strong>Note.</strong><br>While in Settings Mode (Cog Clicked) Modules are draggable and the Settings Icon at the top of each module is active. Clicking the Cog again makes it vanish and the settings Cog's on the Modules also disappear.
 </div>
 {% endblock %}

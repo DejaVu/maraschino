@@ -1,0 +1,21 @@
+{% extends "help/help-base.html" %}
+
+{% block help_content %}
+<div class="help">
+   <br><strong>What is the XBMC Server?</strong><br><br>
+    You should think of a XBMC Server as your HTPC where XBMC is installed. Your XBMC Library holds most of the information Maraschino requires to function correctly.<br>
+	Maraschino allows mutliple Servers, but for the purposes of this help file, we'll assume you only have one.<br><br>
+	
+    The first thing you need to do is specify the address where XBMC is installed.<br>
+	Follow step one on the first page by clicking the link -<br>
+	<center><img src="{{ url_for('static', filename='images/help/tutorial1.jpg') }}"></center><br><br>
+    Then, fill in the details that correspond to your XBMC setup -<br>
+	<center><img src="{{ url_for('static', filename='images/help/tutorial2.jpg') }}"></center><br>
+	These details can be found in XBMC under Settings > Services > Webserver.
+    Username and Password is optional.<br>
+	MAC Address is used for WOL (Wake-Up On LAN).<br>
+	Position is the placement in the list, if you have more than one XBMC Server.<br><br>
+    The click Save - You've successfully added a server. 
+	
+</div>
+{% endblock %}

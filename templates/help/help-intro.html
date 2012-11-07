@@ -3,7 +3,8 @@
 {% block help_content %}
 <div class="help">
   <br><strong>What is Maraschino?</strong><br><br>
-    It is a Web Application that runs on your computer in the background, monitoring your Home Theatre PC's web applications and presents their current status in a widget type architecture.<br><br><br>
+    It is a Web Application that runs on your computer in the background using a cross platform programming language called Python.<br>
+    It is used for monitoring your Home Theatre PC's web applications and presents their current status in a widget type architecture.<br><br><br>
     Maraschino currently offers support for these programs -<br><br>
 
 {% macro inline(title, href, img) %}
@@ -25,7 +26,12 @@
   {{ inline('Transmission', 'http://www.transmissionbt.com/', url_for('static', filename='images/applications/Transmission.png')) }}
   {{ inline('XBMC', 'http://www.xbmc.org', url_for('static', filename='images/applications/XBMC.png')) }}
 
-      <div class="clearBoth"></div>
+    <div class="clearBoth"></div>
+    <strong>Screenshots</strong><br><br>
+	<center>
+    <a href="http://www.maraschinoproject.com/static/images/screenshot1.jpg" target="_blank"><img src="http://www.maraschinoproject.com/static/images/screenshot1_thumb.jpg"></a>
+    <a href="http://www.maraschinoproject.com/static/images/screenshot2.jpg" target="_blank"><img src="http://www.maraschinoproject.com/static/images/screenshot2_thumb.jpg"></a>
+	</center><br><br>
     <strong>Features</strong><br><br>
   <ul>
     <li>Customisable applications module<br><p style="font-size:75%;">providing quick access to your web interfaces (e.g. SABnzb+, SickBeard, or whatever else you want to link to).</p></li>
